@@ -48,6 +48,9 @@ public class MXIndicator: UIView {
     /// The line height value.
     public var lineHeight: CGFloat = 1
     
+    /// The line fixed width value. 标记固定宽度的值
+    public var lineFixedWidth: CGFloat = 20.0
+    
     /// :nodoc:
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -76,6 +79,9 @@ public class MXIndicator: UIView {
         
         var frame = self.bounds //container.inset(by: margin)
         //UIEdgeInsetsInsetRect(bounds, contentEdgeInsets)
+        
+        let width = lineFixedWidth > 0 ? lineFixedWidth : frame.width
+        frame = CGRect(x: (frame.width - width)*0.5, y: frame.origin.y, width: width, height: frame.height)
         
         if linePosition == .top {
             

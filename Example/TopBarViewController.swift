@@ -30,6 +30,10 @@ class TopBarViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        segmentedControl.titleScale = 1.2
+        segmentedControl.fontWeight = .medium
+        segmentedControl.indicatorCornerRadius = 2.0
+        segmentedControl.indicator.lineHeight = 4
         segmentedControl.append(title: "Segmentio")
             .set(titleColor: #colorLiteral(red: 0.08598647267, green: 0.093843095, blue: 0.1104642078, alpha: 1), for: .selected)
         segmentedControl.append(title: "HMSegmentedControl")

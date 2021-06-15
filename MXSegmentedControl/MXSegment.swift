@@ -45,6 +45,35 @@ public class MXSegment: UIButton {
     /// Padding between segment title and image
     public var padding: CGFloat = 8
     
+    public var fontWeight: UIFont.Weight = .regular
+
+    
+    public override var isSelected: Bool {
+        set {
+            super.isSelected = newValue
+            _isSelected = newValue
+            
+            let scale: CGFloat = _isSelected ? _titleScale : 1.0
+            self.titleLabel?.font = UIFont.systemFont(ofSize: 17 * scale, weight: fontWeight)
+            UIFont.systemFont(ofSize: 17, weight: .regular)
+            UIView.animate(withDuration: 0.25) {
+                self.invalidateIntrinsicContentSize()
+                self.layoutIfNeeded()
+            }
+        }
+        get {
+            return _isSelected
+        }
+    }
+
+    fileprivate var _isSelected = false
+    
+    public func set(titleScale: CGFloat) {
+        _titleScale = titleScale
+    }
+    private var _titleScale: CGFloat = 1.0
+
+    
     /// The segment width
     public var width: CGFloat {
         get {
