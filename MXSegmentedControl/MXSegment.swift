@@ -45,6 +45,8 @@ public class MXSegment: UIButton {
     /// Padding between segment title and image
     public var padding: CGFloat = 8
     
+    public var originfont = UIFont.systemFont(ofSize: 17)
+    
     public var fontWeight: UIFont.Weight = .regular
 
     
@@ -54,8 +56,7 @@ public class MXSegment: UIButton {
             _isSelected = newValue
             
             let scale: CGFloat = _isSelected ? _titleScale : 1.0
-            self.titleLabel?.font = UIFont.systemFont(ofSize: 17 * scale, weight: fontWeight)
-            UIFont.systemFont(ofSize: 17, weight: .regular)
+            self.titleLabel?.font = UIFont.systemFont(ofSize: originfont.pointSize * scale, weight: fontWeight)
             UIView.animate(withDuration: 0.25) {
                 self.invalidateIntrinsicContentSize()
                 self.layoutIfNeeded()

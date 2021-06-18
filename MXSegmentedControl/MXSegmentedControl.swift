@@ -406,6 +406,7 @@ extension MXSegmentedControl {
         segment.fontWeight = fontWeight
         segment.set(titleScale: titleScale)
         segment.titleLabel?.font = font
+        segment.originfont = font
         segment.isSelected = (contentView.segments.count == selectedIndex)
         segment.addTarget(self, action: #selector(MXSegmentedControl.select(segment:)), for: .touchUpInside)
         
